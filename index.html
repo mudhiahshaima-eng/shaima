@@ -1,0 +1,621 @@
+```html
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoleVault Sneakers | Jual Beli Sepatu Baru Branded Original</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Notification Toast / Custom Message Box -->
+    <div id="toast" class="fixed top-5 right-5 z-50 transform translate-x-full transition-transform duration-300 bg-slate-900 border border-slate-700 px-6 py-4 rounded-xl shadow-2xl flex items-center space-x-3">
+        <div id="toast-icon" class="text-emerald-400 text-xl"><i class="fa-solid fa-circle-check"></i></div>
+        <div>
+            <h4 id="toast-title" class="font-bold text-sm text-white">Berhasil</h4>
+            <p id="toast-msg" class="text-xs text-slate-400">Aksi berhasil dilakukan.</p>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-indigo-600 to-violet-500 p-2.5 rounded-xl shadow-lg shadow-indigo-500/30">
+                    <i class="fa-solid fa-shoe-prints text-white text-xl transform -rotate-45"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-slate-200 to-indigo-400 bg-clip-text text-transparent">SOLEVAULT</span>
+                    <span class="block text-[10px] tracking-widest text-indigo-400 font-semibold uppercase">Branded Sneakers Hub</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#koleksi" class="hover:text-indigo-400 transition-colors">Koleksi</a>
+                <a href="#tabel-stok" class="hover:text-indigo-400 transition-colors">Tabel Stok & Harga</a>
+                <a href="#metode-pembayaran" class="hover:text-indigo-400 transition-colors">Metode Pembayaran</a>
+                <a href="#cara-order" class="hover:text-indigo-400 transition-colors">Cara Order WA</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <a href="#tabel-stok" class="hidden sm:inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-5 py-2.5 rounded-xl text-sm transition-all shadow-lg shadow-indigo-600/30">
+                    <i class="fa-brands fa-whatsapp mr-2 text-base"></i> Order Cepat
+                </a>
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#koleksi" class="block py-2 text-slate-300 hover:text-indigo-400 font-medium">Koleksi</a>
+            <a href="#tabel-stok" class="block py-2 text-slate-300 hover:text-indigo-400 font-medium">Tabel Stok & Harga</a>
+            <a href="#metode-pembayaran" class="block py-2 text-slate-300 hover:text-indigo-400 font-medium">Metode Pembayaran</a>
+            <a href="#cara-order" class="block py-2 text-slate-300 hover:text-indigo-400 font-medium">Cara Order WA</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-20 lg:py-32 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-6">
+                <i class="fa-solid fa-bolt"></i> 100% Original & Brand New (BNIB)
+            </span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
+                Langkah Penuh Gaya dengan <span class="bg-gradient-to-r from-indigo-400 via-violet-400 to-pink-500 bg-clip-text text-transparent">Sneakers Branded Terbaik</span>
+            </h1>
+            <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto font-normal">
+                Pusat jual beli sepatu branded baru berkualitas tinggi. Nikmati kemudahan pembayaran Cash, Transfer Bank, hingga Angsuran E-Wallet favorit Anda!
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#tabel-stok" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-8 py-4 rounded-xl shadow-xl shadow-indigo-600/30 transition-all flex items-center justify-center space-x-2">
+                    <span>Lihat Tabel Stok & Harga</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="https://wa.me/6281234567890?text=Halo%20SoleVault,%20saya%20ingin%20bertanya%20mengenai%20ketersediaan%20sepatu%20branded." target="_blank" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold px-8 py-4 rounded-xl transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
+                    <span>Chat WhatsApp Admin</span>
+                </a>
+            </div>
+
+            <!-- Highlights / Stats -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto border-t border-slate-800/80 pt-10">
+                <div class="text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white">100%</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Original BNIB</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-indigo-400">0%</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Cicilan E-Wallet*</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white">24/7</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Layanan WhatsApp</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-indigo-400">Fast</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Pengiriman Aman</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Koleksi Unggulan Grid Preview -->
+    <section id="koleksi" class="py-20 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold tracking-widest text-indigo-400 uppercase mb-3">Koleksi Pilihan</h2>
+                <h3 class="text-3xl font-extrabold text-white">Model Branded Terpopuler Minggu Ini</h3>
+                <p class="text-slate-400 text-sm mt-2">Dapatkan model terbaru dengan spesifikasi premium dan jaminan originalitas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-indigo-500/50 transition-all shadow-xl">
+                    <div class="relative h-56 bg-slate-800 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/ffffff?text=Nike+Air+Jordan+1+Retro" alt="Nike Air Jordan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-indigo-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase">Nike</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="text-xs text-indigo-400 font-medium mb-1">High-Top Sneaker</div>
+                        <h4 class="font-bold text-base text-white group-hover:text-indigo-300 transition-colors">Air Jordan 1 Retro High OG</h4>
+                        <p class="text-xs text-slate-400 mt-2 line-clamp-2">Kulit premium, bantalan Air-Sole tersembunyi, sol karet traksi tinggi.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="font-extrabold text-emerald-400 text-base">Rp 2.450.000</span>
+                            <button onclick="pilihProduk('Air Jordan 1 Retro High OG', 'Rp 2.450.000')" class="bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-semibold px-3.5 py-2 rounded-xl transition-all border border-indigo-500/30">
+                                <i class="fa-brands fa-whatsapp mr-1"></i> Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-indigo-500/50 transition-all shadow-xl">
+                    <div class="relative h-56 bg-slate-800 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/ffffff?text=Adidas+Yeezy+Boost+350" alt="Adidas Yeezy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-violet-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase">Adidas</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="text-xs text-indigo-400 font-medium mb-1">Lifestyle Runner</div>
+                        <h4 class="font-bold text-base text-white group-hover:text-indigo-300 transition-colors">Yeezy Boost 350 V2</h4>
+                        <p class="text-xs text-slate-400 mt-2 line-clamp-2">Primeknit atas, teknologi midsole Boost empuk maksimal, kenyamanan paripurna.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="font-extrabold text-emerald-400 text-base">Rp 3.100.000</span>
+                            <button onclick="pilihProduk('Yeezy Boost 350 V2', 'Rp 3.100.000')" class="bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-semibold px-3.5 py-2 rounded-xl transition-all border border-indigo-500/30">
+                                <i class="fa-brands fa-whatsapp mr-1"></i> Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-indigo-500/50 transition-all shadow-xl">
+                    <div class="relative h-56 bg-slate-800 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/ffffff?text=New+Balance+550" alt="New Balance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase">New Balance</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="text-xs text-indigo-400 font-medium mb-1">Retro Basketball</div>
+                        <h4 class="font-bold text-base text-white group-hover:text-indigo-300 transition-colors">New Balance 550 White Grey</h4>
+                        <p class="text-xs text-slate-400 mt-2 line-clamp-2">Desain retro tahun 80-an, upper kulit sintetis tahan lama, gaya casual streetwear.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="font-extrabold text-emerald-400 text-base">Rp 1.850.000</span>
+                            <button onclick="pilihProduk('New Balance 550 White Grey', 'Rp 1.850.000')" class="bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-semibold px-3.5 py-2 rounded-xl transition-all border border-indigo-500/30">
+                                <i class="fa-brands fa-whatsapp mr-1"></i> Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-indigo-500/50 transition-all shadow-xl">
+                    <div class="relative h-56 bg-slate-800 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/ffffff?text=Puma+Suede+Classic" alt="Puma" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-amber-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase">Puma</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="text-xs text-indigo-400 font-medium mb-1">Classic Sneaker</div>
+                        <h4 class="font-bold text-base text-white group-hover:text-indigo-300 transition-colors">Puma Suede Classic XXI</h4>
+                        <p class="text-xs text-slate-400 mt-2 line-clamp-2">Bahan suede mewah, sol karet tahan lama, ikon gaya urban legendaris.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="font-extrabold text-emerald-400 text-base">Rp 1.250.000</span>
+                            <button onclick="pilihProduk('Puma Suede Classic XXI', 'Rp 1.250.000')" class="bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-semibold px-3.5 py-2 rounded-xl transition-all border border-indigo-500/30">
+                                <i class="fa-brands fa-whatsapp mr-1"></i> Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabel Ukuran, Harga, Jumlah Stok, Model & Spesifikasi -->
+    <section id="tabel-stok" class="py-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-xs font-bold tracking-widest text-indigo-400 uppercase mb-3">Inventaris & Katalog</h2>
+                <h3 class="text-3xl font-extrabold text-white">Tabel Ukuran, Harga & Spesifikasi Stok</h3>
+                <p class="text-slate-400 text-sm mt-2">Cek ketersediaan ukuran dan detail spesifikasi lengkap sebelum memesan via WhatsApp.</p>
+            </div>
+
+            <!-- Search & Filter Bar -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+                <div class="relative w-full sm:w-80">
+                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Cari model atau brand..." class="w-full bg-slate-900 border border-slate-800 rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500">
+                </div>
+                <div class="text-xs text-slate-400 flex items-center space-x-2">
+                    <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                    <span>Stok Ready Siap Kirim / Angsur</span>
+                </div>
+            </div>
+
+            <!-- Table Wrapper -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+                <div class="overflow-x-auto">
+                    <table id="shoeTable" class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-800/80 text-slate-300 text-xs uppercase tracking-wider border-b border-slate-700">
+                                <th class="py-4 px-6 font-semibold">Model & Brand</th>
+                                <th class="py-4 px-6 font-semibold">Ukuran (EU)</th>
+                                <th class="py-4 px-6 font-semibold">Harga (IDR)</th>
+                                <th class="py-4 px-6 font-semibold">Stok</th>
+                                <th class="py-4 px-6 font-semibold">Spesifikasi Detail</th>
+                                <th class="py-4 px-6 font-semibold text-center">Aksi Order</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800 text-sm text-slate-300">
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="py-4 px-6 font-bold text-white flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-indigo-400 font-extrabold text-xs">NIKE</div>
+                                    <div>
+                                        <div>Air Jordan 1 Retro High</div>
+                                        <span class="text-xs text-slate-400 font-normal">Chicago Reimagined</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 font-semibold text-indigo-300">40, 41, 42, 43, 44</td>
+                                <td class="py-4 px-6 font-bold text-emerald-400">Rp 2.450.000</td>
+                                <td class="py-4 px-6"><span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-2.5 py-1 rounded-full font-semibold">5 Pasang</span></td>
+                                <td class="py-4 px-6 text-xs text-slate-400">Full Leather, Air Sole Unit, Rubber Outsole, BNIB Original.</td>
+                                <td class="py-4 px-6 text-center">
+                                    <button onclick="orderViaWA('Air Jordan 1 Retro High', 'Rp 2.450.000')" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all shadow-md shadow-indigo-600/30">
+                                        <i class="fa-brands fa-whatsapp mr-1"></i> WA Order
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="py-4 px-6 font-bold text-white flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-violet-400 font-extrabold text-xs">ADID</div>
+                                    <div>
+                                        <div>Yeezy Boost 350 V2</div>
+                                        <span class="text-xs text-slate-400 font-normal">Bone / White</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 font-semibold text-indigo-300">39, 40, 41, 42, 43, 44</td>
+                                <td class="py-4 px-6 font-bold text-emerald-400">Rp 3.100.000</td>
+                                <td class="py-4 px-6"><span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-2.5 py-1 rounded-full font-semibold">8 Pasang</span></td>
+                                <td class="py-4 px-6 text-xs text-slate-400">Primeknit upper, Full Boost midsole cushioning, translucent stripe.</td>
+                                <td class="py-4 px-6 text-center">
+                                    <button onclick="orderViaWA('Yeezy Boost 350 V2', 'Rp 3.100.000')" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all shadow-md shadow-indigo-600/30">
+                                        <i class="fa-brands fa-whatsapp mr-1"></i> WA Order
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="py-4 px-6 font-bold text-white flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-blue-400 font-extrabold text-xs">NB</div>
+                                    <div>
+                                        <div>New Balance 550</div>
+                                        <span class="text-xs text-slate-400 font-normal">White Grey Vintage</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 font-semibold text-indigo-300">40, 41, 42, 43</td>
+                                <td class="py-4 px-6 font-bold text-emerald-400">Rp 1.850.000</td>
+                                <td class="py-4 px-6"><span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-2.5 py-1 rounded-full font-semibold">4 Pasang</span></td>
+                                <td class="py-4 px-6 text-xs text-slate-400">Synthetic leather upper, perforated details, cushioned comfort sole.</td>
+                                <td class="py-4 px-6 text-center">
+                                    <button onclick="orderViaWA('New Balance 550', 'Rp 1.850.000')" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all shadow-md shadow-indigo-600/30">
+                                        <i class="fa-brands fa-whatsapp mr-1"></i> WA Order
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="py-4 px-6 font-bold text-white flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-amber-400 font-extrabold text-xs">PUMA</div>
+                                    <div>
+                                        <div>Puma Suede Classic XXI</div>
+                                        <span class="text-xs text-slate-400 font-normal">Black White</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 font-semibold text-indigo-300">39, 40, 41, 42, 43, 44, 45</td>
+                                <td class="py-4 px-6 font-bold text-emerald-400">Rp 1.250.000</td>
+                                <td class="py-4 px-6"><span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-2.5 py-1 rounded-full font-semibold">10 Pasang</span></td>
+                                <td class="py-4 px-6 text-xs text-slate-400">Suede upper, synthetic lining, rubber midsole & outsole, classic design.</td>
+                                <td class="py-4 px-6 text-center">
+                                    <button onclick="orderViaWA('Puma Suede Classic XXI', 'Rp 1.250.000')" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all shadow-md shadow-indigo-600/30">
+                                        <i class="fa-brands fa-whatsapp mr-1"></i> WA Order
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="py-4 px-6 font-bold text-white flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-rose-400 font-extrabold text-xs">NIKE</div>
+                                    <div>
+                                        <div>Nike Dunk Low Retro</div>
+                                        <span class="text-xs text-slate-400 font-normal">Panda (Black/White)</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 font-semibold text-indigo-300">38, 39, 40, 41, 42, 43, 44</td>
+                                <td class="py-4 px-6 font-bold text-emerald-400">Rp 1.950.000</td>
+                                <td class="py-4 px-6"><span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-2.5 py-1 rounded-full font-semibold">12 Pasang</span></td>
+                                <td class="py-4 px-6 text-xs text-slate-400">Crisp leather upper, foam midsole for lightweight responsive cushioning.</td>
+                                <td class="py-4 px-6 text-center">
+                                    <button onclick="orderViaWA('Nike Dunk Low Retro Panda', 'Rp 1.950.000')" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all shadow-md shadow-indigo-600/30">
+                                        <i class="fa-brands fa-whatsapp mr-1"></i> WA Order
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="py-4 px-6 font-bold text-white flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400 font-extrabold text-xs">ADID</div>
+                                    <div>
+                                        <div>Adidas Stan Smith</div>
+                                        <span class="text-xs text-slate-400 font-normal">Cloud White/Green</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 font-semibold text-indigo-300">39, 40, 41, 42, 43, 44</td>
+                                <td class="py-4 px-6 font-bold text-emerald-400">Rp 1.450.000</td>
+                                <td class="py-4 px-6"><span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-2.5 py-1 rounded-full font-semibold">7 Pasang</span></td>
+                                <td class="py-4 px-6 text-xs text-slate-400">Eco-friendly upper materials, perforated 3-Stripes, iconic minimalist tennis shoe.</td>
+                                <td class="py-4 px-6 text-center">
+                                    <button onclick="orderViaWA('Adidas Stan Smith', 'Rp 1.450.000')" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all shadow-md shadow-indigo-600/30">
+                                        <i class="fa-brands fa-whatsapp mr-1"></i> WA Order
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metode Pembayaran Section -->
+    <section id="metode-pembayaran" class="py-20 bg-slate-900/40 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold tracking-widest text-indigo-400 uppercase mb-3">Fleksibel & Aman</h2>
+                <h3 class="text-3xl font-extrabold text-white">Metode Pembayaran Cash & Angsuran</h3>
+                <p class="text-slate-400 text-sm mt-2">Pilih metode pembayaran yang paling nyaman untuk Anda. Tersedia pembayaran tunai, cicilan e-wallet, dan transfer bank resmi.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Cash Option -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl relative hover:border-indigo-500/50 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-2xl mb-6 border border-emerald-500/20">
+                            <i class="fa-solid fa-money-bill-wave"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Tunai / Cash (COD / Store)</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Lakukan pembayaran secara langsung saat barang diterima (COD wilayah tertentu) atau datang langsung ke store fisik kami.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-300">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Aman dan Tanpa Biaya Admin</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Bisa Cek Barang Langsung</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Potongan Diskon Spesial Store</li>
+                        </ul>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-800 text-xs font-semibold text-emerald-400 flex items-center justify-between">
+                        <span>Status: Tersedia</span>
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                </div>
+
+                <!-- E-Wallet Angsuran -->
+                <div class="bg-slate-900 border border-indigo-500/40 p-8 rounded-3xl relative shadow-xl shadow-indigo-600/10 transition-all flex flex-col justify-between">
+                    <span class="absolute -top-3.5 right-6 bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Populer & Cicilan</span>
+                    <div>
+                        <div class="w-14 h-14 bg-indigo-500/10 text-indigo-400 rounded-2xl flex items-center justify-center text-2xl mb-6 border border-indigo-500/20">
+                            <i class="fa-solid fa-wallet"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Angsuran E-Wallet</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Nikmati fasilitas cicilan dan pembayaran praktis menggunakan e-wallet ternama yang mendukung fitur PayLater atau angsuran ringan.
+                        </p>
+                        <div class="grid grid-cols-3 gap-2.5 mb-4">
+                            <div class="bg-slate-800/80 p-2.5 rounded-xl text-center text-xs font-bold text-slate-200 border border-slate-700">DANA</div>
+                            <div class="bg-slate-800/80 p-2.5 rounded-xl text-center text-xs font-bold text-slate-200 border border-slate-700">OVO</div>
+                            <div class="bg-slate-800/80 p-2.5 rounded-xl text-center text-xs font-bold text-slate-200 border border-slate-700">GoPay</div>
+                            <div class="bg-slate-800/80 p-2.5 rounded-xl text-center text-xs font-bold text-slate-200 border border-slate-700">ShopeePay</div>
+                            <div class="bg-slate-800/80 p-2.5 rounded-xl text-center text-xs font-bold text-slate-200 border border-slate-700">LinkAja</div>
+                            <div class="bg-slate-800/80 p-2.5 rounded-xl text-center text-xs font-bold text-slate-200 border border-slate-700">QRIS</div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-6 border-t border-slate-800 text-xs font-semibold text-indigo-400 flex items-center justify-between">
+                        <span>Cicilan s/d 12 Bulan</span>
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                </div>
+
+                <!-- Transfer Bank -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl relative hover:border-indigo-500/50 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6 border border-blue-500/20">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Transfer Bank Resmi</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Transfer langsung melalui rekening bank resmi atas nama perusahaan kami untuk keamanan dan kecepatan verifikasi otomatis.
+                        </p>
+                        <div class="grid grid-cols-2 gap-2.5 mb-4">
+                            <div class="bg-slate-800/80 p-2.5 rounded-xl text-center text-xs font-bold text-blue-300 border border-slate-700">BCA</div>
+                            <div class="bg-slate-800/80 p-2.5 rounded-xl text-center text-xs font-bold text-sky-300 border border-slate-700">BRI</div>
+                            <div class="bg-slate-800/80 p-2.5 rounded-xl text-center text-xs font-bold text-emerald-300 border border-slate-700">BSI</div>
+                            <div class="bg-slate-800/80 p-2.5 rounded-xl text-center text-xs font-bold text-indigo-300 border border-slate-700">Mandiri</div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-6 border-t border-slate-800 text-xs font-semibold text-blue-400 flex items-center justify-between">
+                        <span>Verifikasi Cepat</span>
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cara Order WhatsApp Interactive Modal / Guide -->
+    <section id="cara-order" class="py-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-indigo-900/40 via-violet-900/30 to-slate-900 border border-indigo-500/30 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="max-w-3xl">
+                    <span class="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-6">
+                        <i class="fa-brands fa-whatsapp"></i> Panduan Pemesanan
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Cara Mudah Order Sepatu Branded via WhatsApp</h2>
+                    <p class="text-slate-300 mt-4 text-sm sm:text-base leading-relaxed">
+                        Pesan langsung lewat admin WhatsApp kami dengan format cepat. Anda cukup klik tombol order pada tabel di atas atau gunakan generator format pesan di bawah ini!
+                    </p>
+
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div class="bg-slate-900/80 backdrop-blur border border-slate-800 p-6 rounded-2xl">
+                            <div class="w-8 h-8 rounded-xl bg-indigo-600 text-white font-bold flex items-center justify-center text-sm mb-4">1</div>
+                            <h4 class="font-bold text-white text-sm mb-1">Pilih Model & Ukuran</h4>
+                            <p class="text-xs text-slate-400">Cek tabel stok dan pastikan ukuran sepatu sesuai dengan kaki Anda.</p>
+                        </div>
+                        <div class="bg-slate-900/80 backdrop-blur border border-slate-800 p-6 rounded-2xl">
+                            <div class="w-8 h-8 rounded-xl bg-indigo-600 text-white font-bold flex items-center justify-center text-sm mb-4">2</div>
+                            <h4 class="font-bold text-white text-sm mb-1">Pilih Pembayaran</h4>
+                            <p class="text-xs text-slate-400">Tentukan apakah ingin Cash, Transfer Bank, atau Cicilan E-Wallet (DANA/OVO/GoPay).</p>
+                        </div>
+                        <div class="bg-slate-900/80 backdrop-blur border border-slate-800 p-6 rounded-2xl">
+                            <div class="w-8 h-8 rounded-xl bg-indigo-600 text-white font-bold flex items-center justify-center text-sm mb-4">3</div>
+                            <h4 class="font-bold text-white text-sm mb-1">Kirim Format WA</h4>
+                            <p class="text-xs text-slate-400">Admin akan segera mengkonfirmasi total tagihan dan alamat pengiriman.</p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Quick Order Form Generator -->
+                    <div class="mt-10 bg-slate-900/90 border border-slate-800 p-6 rounded-2xl">
+                        <h4 class="font-bold text-white text-base mb-4 flex items-center">
+                            <i class="fa-solid fa-pen-to-square text-indigo-400 mr-2"></i> Buat Pesanan Instan ke WhatsApp
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Nama Lengkap</label>
+                                <input type="text" id="custName" placeholder="Contoh: Budi Santoso" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Pilih Model Sepatu</label>
+                                <select id="custShoe" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500">
+                                    <option value="Air Jordan 1 Retro High">Air Jordan 1 Retro High - Rp 2.450.000</option>
+                                    <option value="Yeezy Boost 350 V2">Yeezy Boost 350 V2 - Rp 3.100.000</option>
+                                    <option value="New Balance 550">New Balance 550 - Rp 1.850.000</option>
+                                    <option value="Puma Suede Classic XXI">Puma Suede Classic XXI - Rp 1.250.000</option>
+                                    <option value="Nike Dunk Low Retro Panda">Nike Dunk Low Retro Panda - Rp 1.950.000</option>
+                                    <option value="Adidas Stan Smith">Adidas Stan Smith - Rp 1.450.000</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Ukuran (EU)</label>
+                                <input type="text" id="custSize" placeholder="Contoh: 42" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Metode Pembayaran</label>
+                                <select id="custPayment" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500">
+                                    <option value="Cash / COD">Cash / Tunai / COD</option>
+                                    <option value="Angsuran DANA / E-Wallet">Angsuran E-Wallet (DANA / OVO / GoPay)</option>
+                                    <option value="Transfer Bank BCA/BRI/BSI">Transfer Bank (BCA / BRI / BSI)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button onclick="kirimFormOrder()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-600/30 flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Kirim Pesanan ke WhatsApp Admin</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="bg-indigo-600 p-2 rounded-xl text-white">
+                    <i class="fa-solid fa-shoe-prints transform -rotate-45"></i>
+                </div>
+                <span class="text-lg font-bold text-white tracking-wider">SOLEVAULT SNEAKERS</span>
+            </div>
+            <p class="text-xs text-slate-500 text-center md:text-left">
+                &copy; 2026 SoleVault Sneakers Indonesia. All rights reserved. Jual beli sepatu baru branded original terpercaya.
+            </p>
+            <div class="flex space-x-4 text-slate-400 text-lg">
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="hover:text-emerald-400 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Toast Notification Function (Replaces alert)
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-msg').innerText = message;
+            
+            toast.classList.remove('translate-x-full');
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+            }, 3500);
+        }
+
+        // Search Filter for Table
+        function filterTable() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('shoeTable');
+            const tr = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName('td')[0];
+                if (td) {
+                    const txtValue = td.textContent || td.innerText;
+                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        // Direct WhatsApp Order from Table
+        function orderViaWA(modelName, price) {
+            const phoneNumber = "6281234567890";
+            const message = `Halo Admin SoleVault, saya tertarik ingin membeli sepatu berikut:\n\n*Model:* ${modelName}\n*Harga:* ${price}\n\nMohon informasi ketersediaan ukuran dan detail pembayaran selanjutnya. Terima kasih!`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+            showToast("Mengarahkan ke WhatsApp", `Memproses pesanan untuk ${modelName}`);
+        }
+
+        // Select Product from Grid Preview Card
+        function pilihProduk(modelName, price) {
+            document.getElementById('custShoe').value = modelName;
+            document.getElementById('cara-order').scrollIntoView({ behavior: 'smooth' });
+            showToast("Produk Dipilih", `${modelName} dimasukkan ke form order`);
+        }
+
+        // Form Order WhatsApp Generator
+        function kirimFormOrder() {
+            const name = document.getElementById('custName').value.trim();
+            const shoe = document.getElementById('custShoe').value;
+            const size = document.getElementById('custSize').value.trim();
+            const payment = document.getElementById('custPayment').value;
+
+            if (!name || !size) {
+                showToast("Data Belum Lengkap", "Mohon isi nama lengkap dan ukuran sepatu Anda.");
+                return;
+            }
+
+            const phoneNumber = "6281234567890";
+            const message = `Halo Admin SoleVault, saya ingin memesan sepatu:\n\n*Nama Pemesan:* ${name}\n*Model Sepatu:* ${shoe}\n*Ukuran (EU):* ${size}\n*Metode Pembayaran:* ${payment}\n\nMohon diproses untuk langkah selanjutnya. Terima kasih!`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+            showToast("Berhasil", "Mengarahkan langsung ke WhatsApp Admin.");
+        }
+    </script>
+</body>
+</html>
+```
